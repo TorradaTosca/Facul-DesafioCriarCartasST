@@ -125,7 +125,7 @@ int main() {
 
   //Comparacao de jogo
   printf("\n\nEscolha um atributo para comparar:");
-  printf("\n(1) População\n(2) Area\n(3) PIB\n(4) Número de pontos turísticos\n(5) DensidadePopulacional\n(6) PIB per capta\n(7) Super poder");
+  printf("\n(1) População\n(2) Area\n(3) PIB\n(4) Número de pontos turísticos\n(5) DensidadePopulacional\n(6) PIB per capta\n(7) Super poder\n");
 
   int escolha = -1;
   scanf("%i", &escolha);
@@ -149,7 +149,7 @@ int main() {
       printf("\nCarta 2: %.2f", area2);
       printf("\nResultado: ");
 
-      if (comparacaoPopulacao) {
+      if (comparacaoArea) {
         printf("Carta 1 (%s) venceu!", nomeCidade1);
       }
       else {
@@ -162,7 +162,7 @@ int main() {
       printf("\nCarta 2: %.2f", pib2);
       printf("\nResultado: ");
 
-      if (comparacaoPopulacao) {
+      if (comparacaoPib) {
         printf("Carta 1 (%s) venceu!", nomeCidade1);
       }
       else {
@@ -175,7 +175,7 @@ int main() {
       printf("\nCarta 2: %i", numPontosTuristicos2);
       printf("\nResultado: ");
 
-      if (comparacaoPopulacao) {
+      if (comparacaoNumPtsTuris) {
         printf("Carta 1 (%s) venceu!", nomeCidade1);
       }
       else {
@@ -188,7 +188,7 @@ int main() {
       printf("\nCarta 2: %.2f", densidPopulacional2);
       printf("\nResultado: ");
 
-      if (comparacaoPopulacao) {
+      if (comparacaoDensPopul) {
         printf("Carta 1 (%s) venceu!", nomeCidade1);
       }
       else {
@@ -201,7 +201,7 @@ int main() {
       printf("\nCarta 2: %.2f", pibCapta2);
       printf("\nResultado: ");
 
-      if (comparacaoPopulacao) {
+      if (comparacaoPibCapta) {
         printf("Carta 1 (%s) venceu!", nomeCidade1);
       }
       else {
@@ -214,7 +214,7 @@ int main() {
       printf("\nCarta 2: %.2f", superPoder2);
       printf("\nResultado: ");
 
-      if (comparacaoPopulacao) {
+      if (comparacaoSuperPoder) {
         printf("Carta 1 (%s) venceu!", nomeCidade1);
       }
       else {
@@ -223,7 +223,7 @@ int main() {
     break;
 
     default:
-      printf("Opção inválida...")
+      printf("Opção inválida...");
   }
 
   return 0;
