@@ -123,5 +123,20 @@ int main() {
   printf("\nPIB per capta: Carta %i venceu - %i", 2 - comparacaoPibCapta, comparacaoPibCapta);
   printf("\nSuper poder: Carta %i venceu - %i", 2 - comparacaoSuperPoder, comparacaoSuperPoder);
 
+  //Comparacao de jogo
+  //No momento ainda não há decisao baseada em input
+  printf("\n\nComparação de cartas - Atributo: População");
+  printf("\n\nCarta 1: %lu", populacao1);
+  printf("\nCarta 2: %lu", populacao2);
+  printf("\nResultado: ");
+
+  if (comparacaoPopulacao) {
+    printf("Carta 1 (%s) venceu!", nomeCidade1);
+  }
+  else {
+    printf("Carta 2 (%s) venceu!", nomeCidade2);
+  }
+
+
   return 0;
 }
