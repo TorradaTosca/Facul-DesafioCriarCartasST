@@ -14,12 +14,13 @@ int main() {
   char codigoCarta2[4] = "A01";
   char nomeCidade1[20] = "Cidade";
   char nomeCidade2[20] = "Cidade";
-  int populacao1 = 0, populacao2 = 0;
+  unsigned long int populacao1 = 0, populacao2 = 0;
   float area1 = 0, area2 = 0;
   float pib1 = 0, pib2 = 0;
   int numPontosTuristicos1 = 0, numPontosTuristicos2 = 0;
   float densidPopulacional1 = 0, densidPopulacional2 = 0;
   float pibCapta1 = 0, pibCapta2 = 0;
+  float superPoder1, superPoder2;
 
   printf("Iniciando cadastro de cartas...\n\n");
   printf("Cadastro da carta 1...\n");
@@ -39,14 +40,14 @@ int main() {
   clear_input_buffer();
 
   printf("\nInsira a populacao da cidade: ");
-  scanf("%i", &populacao1);
+  scanf("%lu", &populacao1);
   clear_input_buffer();
 
   printf("\nInsira a área da cidade: ");
   scanf("%f", &area1);
   clear_input_buffer();
 
-  printf("\nInsira o PIB da cidade: ");
+  printf("\nInsira o PIB da cidade (em bilhoes): ");
   scanf("%f", &pib1);
   clear_input_buffer();
 
@@ -56,7 +57,8 @@ int main() {
 
   //Calculos das proximas propriedades da carta
   densidPopulacional1 = (float) populacao1 / area1;
-  pibCapta1 = pib1 / (float) populacao1;
+  pibCapta1 = (pib1 * 1000000000.0) / ((float) populacao1);
+  superPoder1 = ((float) populacao1) + area1 + pib1 + numPontosTuristicos1 + (1/densidPopulacional1) + pibCapta1;
 
   printf("\n\nCarta 1 cadastrada.\n\nIniciando cadastro da carta 2...\n");
 
@@ -75,14 +77,14 @@ int main() {
   clear_input_buffer();
 
   printf("\nInsira a populacao da cidade: ");
-  scanf("%i", &populacao2);
+  scanf("%lu", &populacao2);
   clear_input_buffer();
 
   printf("\nInsira a área da cidade: ");
   scanf("%f", &area2);
   clear_input_buffer();
 
-  printf("\nInsira o PIB da cidade: ");
+  printf("\nInsira o PIB da cidade (em bilhoes): ");
   scanf("%f", &pib2);
   clear_input_buffer();
 
@@ -92,7 +94,8 @@ int main() {
 
   //Calculos das proximas propriedades da carta
   densidPopulacional2 = (float) populacao2 / area2;
-  pibCapta2 = pib2 / (float) populacao2;
+  pibCapta2 = (pib2 * 1000000000) / ((float) populacao2);
+  superPoder2 = ((float) populacao2) + area2 + pib2 + numPontosTuristicos2 + (1/densidPopulacional2) + pibCapta2;
 
   printf("\n\nCadastro de cartas finalizado.\nAs cartas cadastradas foram:");
   
@@ -101,6 +104,24 @@ int main() {
   printf("\n\nCarta2\nEstado: %c\nCódigo: %s\nNome da cidade: %s\nPopulação: %i\nÁrea: %.2f km quadrados\nPIB: %.2f bilhões de reais\nNúmero de pontos turísticos: %i\nDensidade populacional: %.2f hab/km\nPIB per capta: %.2f reais",
          estado2, codigoCarta2, nomeCidade2, populacao2, area2, pib2, numPontosTuristicos2, densidPopulacional2, pibCapta2);
 
+  //Comparacao das cartas
+  printf("\n\nComparação das cartas:\n");
+
+  int comparacaoPopulacao = populacao1 > populacao2;
+  int comparacaoArea = area1 > area2;
+  int comparacaoPib = pib1 > pib2;
+  int comparacaoNumPtsTuris = numPontosTuristicos1 > numPontosTuristicos2;
+  int comparacaoDensPopul = densidPopulacional1 > densidPopulacional2;
+  int comparacaoPibCapta = pibCapta1 > pibCapta2;
+  int comparacaoSuperPoder = superPoder1 > superPoder2;
+
+  printf("\nPopulação: Carta %i venceu - %i", 2 - comparacaoPopulacao, comparacaoPopulacao);
+  printf("\nArea: Carta %i venceu - %i", 2 - comparacaoArea, comparacaoArea);
+  printf("\nPIB: Carta %i venceu - %i", 2 - comparacaoPib, comparacaoPib);
+  printf("\nNúmero de pontos turísticos: Carta %i venceu - %i", 2 - comparacaoNumPtsTuris, comparacaoNumPtsTuris);
+  printf("\nDensidade populacional: Carta %i venceu - %i", 2 - comparacaoDensPopul, comparacaoDensPopul);
+  printf("\nPIB per capta: Carta %i venceu - %i", 2 - comparacaoPibCapta, comparacaoPibCapta);
+  printf("\nSuper poder: Carta %i venceu - %i", 2 - comparacaoSuperPoder, comparacaoSuperPoder);
 
   return 0;
 }
